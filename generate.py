@@ -62,21 +62,21 @@ def generate_dataset(keep_archives=True, use_timit=False):
     ls_train, ls_test, ls_dev = libri_loader(keep_archives)
 
     # Tatoeba
-    tatoeba_train = tatoeba_loader(keep_archives)
+    # tatoeba_train = tatoeba_loader(keep_archives)
 
     # TEDLIUM v2
     ted_train, ted_test, ted_dev = tedlium_loader(keep_archives)
 
     # TIMIT
-    if use_timit:
-        timit_train, timit_test = timit_loader()
-    else:
-        timit_train = None
+    # if use_timit:
+    #     timit_train, timit_test = timit_loader()
+    # else:
+    #     timit_train = None
 
     # Assemble and merge CSV files:
     # Train
     train_csv = merge_csv_files(
-        [cv2_train, ls_train, tatoeba_train, ted_train, timit_train],
+        [cv2_train, ls_train, ted_train],
         'train'
     )
 
